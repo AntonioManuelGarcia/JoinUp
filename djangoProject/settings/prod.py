@@ -8,6 +8,7 @@ ADMINS = [
 ]
 
 ALLOWED_HOSTS = ['*']
+INSTALLED_APPS += ['django.contrib.postgres']
 
 DATABASES = {
    'default': {
@@ -19,6 +20,12 @@ DATABASES = {
        'PORT': 5432,
    }
 }
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'your_account@gmail.com'
+EMAIL_HOST_PASSWORD = 'xxxxxxxxxxxxxxxx'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Security
 CSRF_COOKIE_SECURE = True
