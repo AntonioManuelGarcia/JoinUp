@@ -16,6 +16,7 @@ de telefono han sido validados o no.
 
 `````json
 {
+  "id": 73,
   "first_name": "aa",
   "last_name": "aa",
   "email": "wiladrow@gmail.com",
@@ -29,10 +30,11 @@ de telefono han sido validados o no.
 ### Registro:
 
 POST `/api/1.0.0/signup/` con los parametros requeridos `email` y `phone_number`, y los opcionales 
-`first_name`,`last_name` y`hobbies`. Devuelve los datos de la perfil creado
+`first_name`,`last_name` y`hobbies`. Devuelve los datos del perfil creado
 
 ````json
 {
+  "id": 73,
   "first_name": "antonio",
   "last_name": "manuel",
   "email": "mail@gmail.com",
@@ -64,9 +66,7 @@ Para poner en marcha el docker del proyecto simplemente hay que ejecutar
 los siguientes comandos.
 
 ```
-docker-compose build
-docker-compose run --rm app django-admin startproject core .
-docker-compose up
+docker-compose up -d --build
 ```
 
 ## Test y cobertura
@@ -273,10 +273,11 @@ Ran 8 tests in 0.115s
 ## Questionario
 
 - ¿Cuántas consultas hace cada endpoint a la BD?
-> Pues el endpoint de signup hace dos selects y un insert, el insert solo si los campos son correctos.
+> Pues el endpoint de signup hace dos selects y un insert, el insert solo si los campos obligatorios son correctos.
 > Mientras que el endpoint del profile hace una única consulta de select.
 - ¿Cuántas consultas hace la parte asíncrona?
-> 
+> La parte asincrona a la hora de crear un perfil tiene el mismo comportamiento, hace una consulta de insert y 
+> dos selects también. 
 - ¿Puedes poner un ejemplo de petición (tipo curl) por cada endpoint?
 > Se puede consultar en el endpoint de documentación con swagger, pero serían tal que asi para 
 > el endpoint de profile y signup respectivamente:
@@ -320,7 +321,10 @@ compleja?
 > por la versión 3.10 en su lugar.
 - ¿Qué es lo más divertido que has desarrollado? ¿Qué es lo que más te gusta
 desarrollar?
-> Lo que más me gusta desarrollar es 
+> Lo más divertido que he desarrollado ha sido en programación competitiva, algoritmos de lógica
+> computacional y aprendizaje para plman, un clon del clasico pacman.
+> Lo que más me gusta desarrollar son cosas que me supongan un reto y me permitan aprender cosas
+> nuevas, no tiene que ser algo en concreto. 
 - ¿Qué es lo que más odias desarrollar?
 > Proyectos legacy con versiones muy antiguas.  
 - ¿Tienes manías desarrollando? ¿Cuáles son?
