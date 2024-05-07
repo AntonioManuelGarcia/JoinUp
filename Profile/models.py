@@ -5,7 +5,6 @@ from django.core.mail import send_mail
 
 
 class Profile(models.Model):
-
     id = models.BigAutoField(primary_key=True, editable=False)
     first_name = models.CharField(_('first name'), max_length=128, unique=False, null=False, blank=False)
     last_name = models.CharField(_('last name'), max_length=128, unique=False, null=False, blank=False)
@@ -29,4 +28,4 @@ class Profile(models.Model):
         return self.first_name
 
     def send_email(self, subject, message, from_email=None):
-        send_mail(subject, message, from_email, [self.email])
+        return send_mail(subject, message, from_email, [self.email])

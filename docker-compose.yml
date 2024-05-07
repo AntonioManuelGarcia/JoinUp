@@ -9,3 +9,23 @@ services:
       - "8000:8000"
     environment:
       DJANGO_SETTINGS_MODULE: djangoProject.settings.local
+      CELERY_BROKER_URL: "redis://redis:6379/0"
+      CELERY_RESULT_BACKEND: "redis://redis:6379/0"
+    depends_on:
+      - redis
+
+  celery:
+      build: .
+      command: celery -A djangoProject worker -l info
+      volumes:
+        - .:/code
+      depends_on:
+        - redis
+
+  redis:
+      image: redis:7.0.4
+      restart: always
+      volumes:
+        - .:/code
+      expose:
+            - "6379"
