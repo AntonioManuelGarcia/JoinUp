@@ -14,7 +14,7 @@ sms_client = Client(base.MY_ACCOUNT_SID, base.TWILIO_AUTH_TOKEN)
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['first_name', 'last_name', 'email', 'email_validated', 'phone_number', 'phone_number_validated',
+        fields = ['id', 'first_name', 'last_name', 'email', 'email_validated', 'phone_number', 'phone_number_validated',
                   'hobbies']
 
 
@@ -30,7 +30,7 @@ class CreateProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['first_name', 'last_name', 'email', 'phone_number',
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone_number',
                   'hobbies']
 
     def create(self, validated_data):
